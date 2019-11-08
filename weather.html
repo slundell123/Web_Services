@@ -89,6 +89,13 @@
 				document.getElementById('temp_today').innerText = data.currently.temperature;
 				document.getElementById('image_today').src = 'img/'+data.currently.icon+'.png';
 				document.getElementById('icon_today').innerText = data.currently.icon;
+				if(data.currently.temperature < 85 && data.currently.temperature > 65){
+					document.getElementById('thermometer_inner').style.background = 'grey';
+				} else if(data.currently.temperature > 85){
+					document.getElementById('thermometer_inner').style.background = 'red';
+				} else {
+					document.getElementById('thermometer_inner').style.background = 'blue';					
+				}
 				document.getElementById('thermometer_inner').style.height = data.currently.temperature+'%';
 				document.getElementById('precip_today').innerText = data.currently.precipProbability +"%";
 				document.getElementById('humidity_today').innerText = data.currently.humidity +'%';
